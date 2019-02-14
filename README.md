@@ -13,8 +13,11 @@ everyday u wake up and want to try , do `git pull`,and u will get my latest upda
 
 ## Operation instructions
 `python3 Construct.py`
+
 `python3 Pack.py`
+
 `python3 mesh.py`
+
 then check the finale folder, u can use blender to open it 
 
 # Concept
