@@ -62,11 +62,11 @@ Just put the number of the last mesh + 1 ,
 for instance my last mesh was *11.stl* so i put `Mesh_No = 12`
 
    ### Inside the *mesh* file: 
-Variable `x_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever , this value governs the distance between meshes in the x-axis so u can make them touch or even join higher is joining them more. 
+Variable `x_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever , this value governs the distance between meshes in the x-axis so u can make them touch or even join higher is ,joining them more. 
 
-Variable `y_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever , this value governs the distance between meshes in the y-axis so u can make them touch or even join higher is joining them more.
+Variable `y_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever , this value governs the distance between meshes in the y-axis so u can make them touch or even join higher is ,joining them more.
 
-Variable `z_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever , this value governs the distance between meshes in the z-axis so u can make them touch or even join higher is joining them more. 
+Variable `z_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever , this value governs the distance between meshes in the z-axis so u can make them touch or even join higher is ,joining them more. 
 
 Variable `z_axis` : z_axis was throwing me off in the visualization so i added the option to disable it, u can enable it `z_axis = True` . 
   
