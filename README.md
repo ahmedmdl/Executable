@@ -18,8 +18,9 @@ then check the finale folder, u can use blender to open it
 
 # Concept
 ## Inside the Mesh folder:
-  put as much meshes as u can starting with their names starting from *1.stl* like *2.stl* *3.stl* etc..  
-  u can put high res meshes as well and i encourage that
+  put as much meshes as u can starting with their names starting from *1.stl* just incrementing the number.
+  
+  u can put high res meshes as well and i encourage that.
 
 
 ## Inside the Data folder:
