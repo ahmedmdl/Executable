@@ -1,8 +1,11 @@
 So i have seperated this into different folders so i can work , upload to the website and u just pull everyday to get the latest version.
 # First step
-make a folder with any name u want, go inside
-make 3 files named `Data` `Finale` `Mesh`
+make a folder with any name u want, go inside,
+
+make 3 files named `Data` `Finale` `Mesh`,
+
 then do `git clone https://github.com/ahmedmdl/Executable`.
+
 u should get the *Executable* folder now.
 
 # Operation
@@ -15,7 +18,7 @@ then check the finale folder, u can use blender to open it
 
 # Concept
 ## Inside the Mesh folder:
-  put as much meshes as u can starting with their names starting from 1 just like in the pic
+  put as much meshes as u can starting with their names starting from *1.stl* like *2.stl* *3.stl* etc..  
   u can put high res meshes as well and i encourage that
 
 
