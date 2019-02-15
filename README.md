@@ -22,7 +22,9 @@ Then check the finale folder, u can use blender to open it
 
 # Concept
 ## Inside the Mesh folder:
-  Put as much meshes as u can starting with their names starting from *1.stl* just incrementing the number.
+  Put as much meshes as u can with their names starting from *1.stl* just incrementing the number.
+  
+  in case meshes are not named in this way, you could just put whatever you want inside the folder then you will find inside the *Executables* folder a file named **rename_script.sh**,it will rename everything automatically.
   
   You can put high res meshes as well and i encourage that.
 
