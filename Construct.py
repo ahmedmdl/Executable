@@ -6,6 +6,8 @@ import pandas as pd
 import csv
 import subprocess
 
+Randomize = False
+
 task = subprocess.Popen("ls ../Mesh -1 | wc -l",shell=True,stdout=subprocess.PIPE)
 Mesh_No = task.stdout.read()
 Mesh_No = int(Mesh_No)+1
@@ -15,9 +17,13 @@ def find_mins_maxs(obj):
 
 d = {'id': [], 'Name': [],'Width(x)': [],'Height(y)': [],'Length(z)': []}
 df = pd.DataFrame(data=d)
+
 for i in range(1, Mesh_No):
     body = mesh.Mesh.from_file('../Mesh/%d.stl'%i)
     minx, maxx, miny, maxy, minz, maxz = find_mins_maxs(body)
     df = df.append({'id': '%d'%i, 'Name': '%d.stl'%i,'Width(x)': maxx-minx,'Height(y)': maxy-miny,'Length(z)': maxz-minz}, ignore_index=True)
+    
 df = df[['id','Name','Width(x)','Height(y)','Length(z)']]
+if Randomize == True:
+        df = df.sample(frac=1).reset_index(drop=True)
 df.to_csv("../Data/Boxes.csv", index=False)
