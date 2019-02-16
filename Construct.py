@@ -9,9 +9,9 @@ import subprocess
 Randomize = False
 Rotate = True
 
-task = subprocess.Popen("ls ../Mesh -1 | wc -l",shell=True,stdout=subprocess.PIPE)
+task = subprocess.Popen("ls -1 ../Mesh  | wc -l",shell=True,stdout=subprocess.PIPE)
 Mesh_No = task.stdout.read()
-Mesh_No = int(Mesh_No)
+Mesh_No = int(Mesh_No) +1
 
 def find_mins_maxs(obj):
         return numpy.amin(obj.v0[0]),numpy.amax(obj.v0[0]),numpy.amin(obj.v1[0]),numpy.amax(obj.v1[0]),numpy.amin(obj.v2[0]),numpy.amax(obj.v2[0])
