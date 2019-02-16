@@ -17,7 +17,7 @@ You can change the values for width, height and length inside the *conts.csv* fi
 
 `Pack.py` is the algorithm that takes *Boxes.csv* and *Conts.csv* and calculates the ideal way to pack meshes into the container, its output is *Mesh.csv* .
 
-`mesh.py` is the algorithm that takes *Mesh.csv* and converts it into a form that blender can read,its output is a .stl file and a .txt file having the the values of *x_Tolerance*, *y_Tolerance*, *z_Tolerance*, *z_axis* as a reminder for later comparison.
+`mesh.py` is the algorithm that takes *Mesh.csv* and converts it into a form that blender can read,  its output is a .stl file and a .txt file having the the values of *x_Tolerance*, *y_Tolerance*, *z_Tolerance*, *z_axis* as a reminder for later comparison.
 
 output files have incremented names , they do not replace each other.
 
@@ -74,11 +74,11 @@ Then check the finale folder, u can use blender to open it
 ## Inside the Executables folder:
 
    ### Inside the *mesh* file: 
-Variable `x_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever , this value governs the distance between meshes in the x-axis so u can make them touch or even join higher is ,joining them more. 
+Variable `x_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever , this value governs the distance between meshes in the x-axis so u can make them touch or even join ,higher is joining them more. 
 
-Variable `y_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever , this value governs the distance between meshes in the y-axis so u can make them touch or even join higher is ,joining them more.
+Variable `y_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever , this value governs the distance between meshes in the y-axis so u can make them touch or even join ,higher is joining them more.
 
-Variable `z_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever , this value governs the distance between meshes in the z-axis so u can make them touch or even join higher is ,joining them more. 
+Variable `z_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever , this value governs the distance between meshes in the z-axis so u can make them touch or even join ,higher is joining them more. 
 
 Variable `z_axis` : z_axis was throwing me off in the visualization so i added the option to disable it, u can enable it `z_axis = True` . 
   
