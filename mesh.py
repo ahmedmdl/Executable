@@ -60,7 +60,7 @@ for i in range(2,len(x)):
    mesH.append(meshh)
 combined = mesh.Mesh(numpy.concatenate([main_body.data]+[meshee.data for meshee in mesH]))
 
-task = subprocess.Popen("ls ../Finale -1v",shell=True,stdout=subprocess.PIPE)
+task = subprocess.Popen("ls -1v ../Finale ",shell=True,stdout=subprocess.PIPE)
 last_mesh = task.stdout.read()
 if len(last_mesh) == 0:
         with open("../Finale/combined_001.txt", 'w+') as f:
