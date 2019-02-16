@@ -3,9 +3,12 @@ import stl
 import numpy
 from stl import mesh
 import pandas as pd
-import csv	
+import csv
+import subprocess
 
-Mesh_No = 12
+task = subprocess.Popen("ls ../Mesh -1 | wc -l",shell=True,stdout=subprocess.PIPE)
+Mesh_No = task.stdout.read()
+Mesh_No = int(Mesh_No)+1
 
 def find_mins_maxs(obj):
         return numpy.amin(obj.v0[0]),numpy.amax(obj.v0[0]),numpy.amin(obj.v1[0]),numpy.amax(obj.v1[0]),numpy.amin(obj.v2[0]),numpy.amax(obj.v2[0])
