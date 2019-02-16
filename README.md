@@ -11,9 +11,11 @@ You should get the *Executable* folder now.
 # Operation theory
 `Construct.py` is the algorithm that looks inside the *Mesh* folder and reads all the meshes then converts them into a form that *Pack.py* can read , its output is *Boxes.csv* .
 
-You don't have to specify the number of meshes.
+You don't have to specify the number of meshes, it gets it on its own.
 
-You can look into *Boxes.csv* to gain insight about dimensions but do not change it.
+You can change `Randomize = True` if you would like to get random output each time, *probably*.
+
+You can look into *Boxes.csv* to gain insight about the dimensions but do not change it.
 
 You can change the values for width, height and length inside the *conts.csv* file.
 
