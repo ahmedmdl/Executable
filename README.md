@@ -12,11 +12,14 @@ You should get the *Executable* folder now.
 `Construct.py` is the algorithm that looks inside the *Mesh* folder and reads all the meshes then converts them into a form that *Pack.py* can read , its output is *Boxes.csv* .
 
 You can look into *Boxes.csv* to gain insight about dimensions but do not change it.
+
 You can change the values for width, height and length inside the *conts.csv* file.
 
 `Pack.py` is the algorithm that takes *Boxes.csv* and *Conts.csv* and calculates the ideal way to pack meshes into the container, its output is *Mesh.csv* .
 
-`mesh.py` is the algorithm that takes *Mesh.csv* and converts it into a form that blender can read,its output is a numbered stl file and txt file having the the values of *x_Tolerance*, *y_Tolerance*, *z_Tolerance*, *z_axis* as a reminder for later comparison.
+`mesh.py` is the algorithm that takes *Mesh.csv* and converts it into a form that blender can read,its output is a .stl file and a .txt file having the the values of *x_Tolerance*, *y_Tolerance*, *z_Tolerance*, *z_axis* as a reminder for later comparison.
+
+output files have incremented names , they do not replace each other.
 
 You can change *x_Tolerance*, *y_Tolerance*, *z_Tolerance*, *z_axis* values inside *mesh.py*, please check the *mesh.py section below.
 
@@ -33,7 +36,7 @@ Everyday u wake up and want to try , do `git pull`,and u will get my latest upda
 
 Then check the finale folder, u can use blender to open it 
 
-# Concept
+# Walkaround
 ## Inside the Mesh folder:
   Put as much meshes as u can with their names starting from *1.stl* just incrementing the number.
   
