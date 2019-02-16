@@ -23,7 +23,7 @@ You can change the values for width, height and length inside the *conts.csv* fi
 
 output files have incremented names , they do not replace each other.
 
-You can change *x_Tolerance*, *y_Tolerance*, *z_Tolerance*, *z_axis* values inside *mesh.py*, please check the *mesh.py section below.
+You can change *x_Tolerance*, *y_Tolerance*, *z_Tolerance*, *z_axis* values inside *mesh.py*, please check the *mesh.py* section below.
 
 Everyday u wake up and want to try , do `git pull`,and u will get my latest updates.
 
