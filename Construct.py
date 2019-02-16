@@ -7,6 +7,7 @@ import csv
 import subprocess
 
 Randomize = False
+Rotate = True
 
 task = subprocess.Popen("ls ../Mesh -1 | wc -l",shell=True,stdout=subprocess.PIPE)
 Mesh_No = task.stdout.read()
