@@ -29,7 +29,8 @@ class BoxFinal:
                  level,
                  coor_x,
                  coor_y,
-                 coor_z):
+                 coor_z,
+                 Rot):
         
         self.ID= ID
         self.name = name
@@ -38,6 +39,7 @@ class BoxFinal:
         self.coor_x = coor_x
         self.coor_y = coor_y
         self.coor_z = coor_z
+        self.Rot = Rot
     
 
 def compare(b1, b2):
@@ -101,8 +103,6 @@ class BinPacking:
        self.cont = 0
        self.boxesfinal = []
        
-       #some constants for the program
-       #double arr[][] = new double[1000][1000]
        self.n=0
 
        self.tp1 = 0
@@ -112,6 +112,7 @@ class BinPacking:
        self.tmp = 0
        self.c = 0
        self.flag_tmp = 0
+       self.Rot = False
 
        self.BOX_ID_IDX = 0
        self.BOX_NAME_IDX = 1
@@ -148,17 +149,17 @@ class BinPacking:
               next(r)
               for ro in r:
                  self.cont = Container(ro[self.CONT_ID_IDX],
-                                      ro[self.CONT_NAME_IDX],
-                                      int(ro[self.CONT_X_IDX]),
-                                      int(ro[self.CONT_Y_IDX]),
-                                      int(ro[self.CONT_Z_IDX]))
+                                       ro[self.CONT_NAME_IDX],
+                                       int(ro[self.CONT_X_IDX]),
+                                       int(ro[self.CONT_Y_IDX]),
+                                       int(ro[self.CONT_Z_IDX]))
               
         except Exception as e:
             print(e)              
                     
     def iterr(self,box):
                      
-                    self.flag_tmp = False           #flag_tmp is used to check whether box is added or not if not added it will print the box 
+                    self.flag_tmp = False             #flag_tmp is used to check whether box is added or not if not added it will print the box 
                     self.tp1 = self.cont.xt           #tp1 is storing the remaining length of container x side
                     self.tp2 = self.cont.yt           #tp2 is storing the remaining length of container y side
                     
@@ -179,7 +180,7 @@ class BinPacking:
                                     if(self.cont.xt>=box.x and
                                        self.cont.yt>=box.y):                              #if the box fits the remaining space then
                                        
-                                        self.cont.vol -= box.vol                   #decrementing cont volume
+                                        self.cont.vol -= box.vol                          #decrementing cont volume
                                                     
                                         self.tmp = self.cont.zt                               #tmp is a temporary variable to store previous max height of that level
                                         self.cont.zt = max(self.cont.zt, box.z)                #changing cont.zt
@@ -187,9 +188,9 @@ class BinPacking:
                                         if self.cont.zt != self.tmp:                            #if it is not equal 
                                             self.cont.z = self.cont.z - self.cont.zt + self.tmp         #chaning the cont.z --visualize IT
                                         
-                                        if self.cont.first_flag == True:                 #for the first time the container is choosen
+                                        if self.cont.first_flag == True:                    #for the first time the container is choosen
                                             self.cont.z -= self.cont.zt
-                                            self.cont.first_flag = False                 #toggling the cont.first_flag
+                                            self.cont.first_flag = False                    #toggling the cont.first_flag
                                             self.cont.level += 1                            #for initial level leveling up
                                         #Making new reference and Adding the box into the BoxFinal reference
                                         tp = BoxFinal(self.cont.ID,
@@ -198,7 +199,8 @@ class BinPacking:
                                                       self.cont.level,
                                                       self.cont.x-self.cont.xt,
                                                       self.cont.y-self.cont.yt,
-                                                      self.cont.z-self.cont.zt)
+                                                      self.cont.z-self.cont.zt,
+                                                      self.Rot)
                                         
                                         self.boxesfinal.append(tp)
                                         
@@ -249,6 +251,7 @@ class BinPacking:
                                         t5 = box.x
                                         box.x = box.y
                                         box.y = t5
+                                        self.Rot='z'
 
                                         self.cff += 1 
                                         self.cfk += 1 
@@ -259,7 +262,8 @@ class BinPacking:
 
                                 th = box.z
                                 box.z = box.y
-                                box.y = th 
+                                box.y = th
+                                self.Rot='x'
 
                                 self.cff += 1
                             
@@ -270,7 +274,8 @@ class BinPacking:
                                 th = box.z
                                 box.z = box.x
                                 box.x = th  
-
+                                self.Rot='y'
+                                
                                 self.cff += 1
                             
                             else:
@@ -283,12 +288,6 @@ class BinPacking:
     def least_no_boxes(self):
             print("###---LEAST NUMBER OF BOXES---###")
 
-            #Boxes are sorted in INCREASING ORDER OF VOLUMES
-            #Collections.sort(boxes, new BoxComparatorVol());    #OPTIONAL TEST - Collections.reverse(boxes);
-
-            #Containers are sorted in INCREASING ORDER OF VOLUMES
-            #Collections.sort(conts, new ContainerComparatorVol());  #OPTIONAL TEST - Collections.reverse(conts);
-
             self.c = len(self.boxes)   #c stores the number of boxes
 
             print("List of boxes may or maynot fit:-")
@@ -296,22 +295,47 @@ class BinPacking:
             #if it does not fit try the next smallest container
             for box in self.boxes:                
                 self.iterr(box)
-                #Collections.sort(conts, new ContainerComparatorVol())      #again sorting the conatiners for the next iteration
-                #Collections.reverse(conts);
-                    
-            #print the Boxes list --that are filled
-            #Collections.sort(boxesfinal, new BoxFinalComparatorId())
+
             print("The boxes and containers are:-")
             tp_prev_id = 1
-            d = {'Mesh ID': [], 'Mesh name': [],'x_coords': [],'y_coords': [],'z_coords': []}
+            d = {'Mesh ID': [], 'Mesh name': [],'x_coords': [],'y_coords': [],'z_coords': [],'Rot':[]}
             df = pd.DataFrame(data=d)
             for tp in self.boxesfinal:
                 if tp_prev_id != tp.ID:
                     print("")
-                print("Mesh ID:",tp.box.ID,"Mesh Name:",tp.box.name," x_coords:",tp.coor_x," y_coords:",tp.coor_y,"z_coords:",tp.coor_z)
-                df = df.append({'Mesh ID': tp.box.ID, 'Mesh name': '%s'%tp.box.name,'x_coords': tp.coor_x,'y_coords': tp.coor_y,'z_coords': tp.coor_z}, ignore_index=True)
+                print("Mesh ID:",tp.box.ID,"Mesh Name:",tp.box.name," x_coords:",tp.coor_x," y_coords:",tp.coor_y,"z_coords:",tp.coor_z,"Rot:",tp.Rot)
+                df = df.append({'Mesh ID': tp.box.ID, 'Mesh name': '%s'%tp.box.name,'x_coords': tp.coor_x,'y_coords': tp.coor_y,'z_coords': tp.coor_z,'Rot':tp.Rot}, ignore_index=True)
                 tp_prev_id = tp.ID
-                   
+           
+            df = df[['Mesh ID', 'Mesh name','x_coords','y_coords','z_coords','Rot']]      
             print("Total number of boxes=",len(self.boxes))
             print("Number of boxes left=",self.c)
             df.to_csv("../Data/mesh.csv", index=False)
+
+"""
+                     _    
+                    | |
+                    | |                     
+                ____| |____
+               |___________|
+
+               x1 y1 z1
+               x2 y2 z2 po_x po_y po_z
+               while ID:
+                   if z:
+                      if y&x:
+                         tmpdims = realdims - box dim
+                         tmpbox = box
+                         IDcontinuous = true
+                      else:
+                         remove tmpbox,tmpdims 
+                         treat whole thing as one box  
+                         IDcontinuous = false
+                   else:
+                      remove tmpbox,tmpdims 
+                      treat whole thing as one box                         
+                      IDcontinuous = false
+              if IDcontinuous == False:
+                   treat whole thing as one big box or maybe rotate it         
+
+"""
