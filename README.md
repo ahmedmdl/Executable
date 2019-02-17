@@ -10,8 +10,6 @@ You should get the *Executable* folder now.
 Under `Bins` ,put the *parameters.txt* and *linker.sh*
 
 # Operation theory
-put `linker.sh` and `parameters.txt` inside the *Bins* folder.
-
 `parameters.txt` is the file that has all the parameters u need done, so u don't have to go into each script and choose whatever u want, please check the *parameters.txt* section below for instructions on what is inside.
 
 Go into bins and do `chmod +x linker.sh` to make it executable then do `./linker.sh`
