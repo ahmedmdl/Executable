@@ -89,11 +89,11 @@ Variable `y_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever 
 
 Variable `z_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever , this value governs the distance between meshes in the z-axis so u can make them touch or even join ,higher is joining them more. 
 
-Variable `z_axis` : z_axis was throwing me off in the visualization so i added the option to disable it, u can enable it `z_axis = True` . 
+Variable `z_axis` : z_axis was throwing me off in the visualization so i added the option to disable it, u can enable it `z_axis=1` . 
   
- Variable `Randomize=1` if you would like to get random output each time.  
+ Variable `Randomize=1` if you would like to get random output each time, you can disable it `Randomize=0` .  
  
- Variable `Rotate=1` if you would like the meshes to be rotated when necessary.
+ Variable `Rotate=1` if you would like the meshes to be rotated when necessary, you can disable it `Rotate=0`.
  
  ## Inside the finale folder:
 ### Combined.stl file :
