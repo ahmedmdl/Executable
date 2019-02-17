@@ -312,8 +312,7 @@ class BinPacking:
             print("Number of boxes left=",self.c)
             df.to_csv("../Data/mesh.csv", index=False)
 
-"""
-                     _    
+"""                  _    
                     | |
                     | |                     
                 ____| |____
@@ -333,9 +332,8 @@ class BinPacking:
                          IDcontinuous = false
                    else:
                       remove tmpbox,tmpdims 
-                      treat whole thing as one box                         
+                      treat the whole thing as one box(add the identical IDs dims together, box them , then pass them to be processed and skip till the next ID)                         
                       IDcontinuous = false
               if IDcontinuous == False:
-                   treat whole thing as one big box or maybe rotate it         
-
+                   treat whole thing as one big box or maybe rotate it                                   
 """
