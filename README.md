@@ -1,42 +1,47 @@
-So i have seperated this into different folders so i can work , upload to the website and u just pull everyday to get the latest version.
 # First step
 Make a folder with any name u want, go inside,
 
-make 3 files named `Data` `Finale` `Mesh`,
+make 4 files named `Data` `Finale` `Mesh` `Bins`,
 
 then do `git clone https://github.com/ahmedmdl/Executable`.
 
 You should get the *Executable* folder now.
 
+Under `Bins` ,put the *parameters.txt* and *linker.sh*
+
 # Operation theory
-`Construct.py` is the algorithm that looks inside the *Mesh* folder and reads all the meshes then converts them into a form that *Pack.py* can read , its output is *Boxes.csv* .
+put `linker.sh` and `parameters.txt` inside the *Bins* folder.
+
+`parameters.txt` is the file that has all the parameters u need done, so u don't have to go into each script and choose whatever u want, please check the *parameters.txt* section below for instructions on what is inside.
+
+Go into bins and do `chmod +x linker.sh` to make it executable then do `./linker.sh`
+
+You will get three files:
+
+`Construct` is the algorithm that looks inside the *Mesh* folder and reads all the meshes then converts them into a form that *Pack.py* can read , its output is *Boxes.csv* .
 
 You don't have to specify the number of meshes, it gets it on its own.
-
-You can change `Randomize = True` if you would like to get random output each time, *probably*.
 
 You can look into *Boxes.csv* to gain insight about the dimensions but do not change it.
 
 You can change the values for width, height and length inside the *conts.csv* file.
 
-`Pack.py` is the algorithm that takes *Boxes.csv* and *Conts.csv* and calculates the ideal way to pack meshes into the container, its output is *Mesh.csv* .
+`Pack` is the algorithm that takes *Boxes.csv* and *Conts.csv* and calculates the ideal way to pack meshes into the container, its output is *Mesh.csv* .
 
-`mesh.py` is the algorithm that takes *Mesh.csv* and converts it into a form that blender can read,  its output is a .stl file and a .txt file having the the values of *x_Tolerance*, *y_Tolerance*, *z_Tolerance*, *z_axis* as a reminder for later comparison.
+`mesh` is the algorithm that takes *Mesh.csv* and converts it into a form that blender can read,  its output is a .stl file and a .txt file having the the values of *x_Tolerance*, *y_Tolerance*, *z_Tolerance*, *z_axis* as a reminder for later comparison.
 
 output files have incremented names , they do not replace each other.
-
-You can change *x_Tolerance*, *y_Tolerance*, *z_Tolerance*, *z_axis* values inside *mesh.py*, please check the *mesh.py* section below.
 
 Everyday u wake up and want to try , do `git pull`,and u will get my latest updates.
 
 
 
 ## Operation instructions
-`python3 Construct.py`
+`python3 construct`
 
-`python3 Pack.py`
+`python3 pack`
 
-`python3 mesh.py`
+`python3 mesh`
 
 Then check the finale folder, u can use blender to open it 
 
@@ -75,9 +80,11 @@ Then check the finale folder, u can use blender to open it
  
   
 
-## Inside the Executables folder:
+## Inside the Bins folder:
 
-   ### Inside the *mesh* file: 
+   ### *parameters.txt* file: 
+the script is sensitive to spaces between symbols so for instance it will crash on `Randomize= 1` or `Randomize =1`, it has to be crammed up like this `Randomize=1`  
+   
 Variable `x_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever , this value governs the distance between meshes in the x-axis so u can make them touch or even join ,higher is joining them more. 
 
 Variable `y_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever , this value governs the distance between meshes in the y-axis so u can make them touch or even join ,higher is joining them more.
@@ -86,9 +93,11 @@ Variable `z_Tolerance` : u can change it to values like 1, 1.3, 1.5 or whatever 
 
 Variable `z_axis` : z_axis was throwing me off in the visualization so i added the option to disable it, u can enable it `z_axis = True` . 
   
+ Variable `Randomize=1` if you would like to get random output each time.  
  
-
-## Inside the finale folder:
+ Variable `Rotate=1` if you would like the meshes to be rotated when necessary.
+ 
+ ## Inside the finale folder:
 ### Combined.stl file :
    You can import it into blender, it contains all the combined meshes.
    
